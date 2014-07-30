@@ -1,7 +1,9 @@
 SMS-Tweak Android Application
 =============================
 
-Android App to manage your SMS
+  * About 
+
+SMS-TWEAK is an Android App to process incoming SMS. 
 
 - Multiple filters
 - Custom actions 
@@ -9,11 +11,11 @@ Android App to manage your SMS
 
   * Build 
 
-$ git clone git@github.com:ofauchon/smstweak.git
-$ cd smstweak
+  git clone git@github.com:ofauchon/smstweak.git
+  cd smstweak
 
-$ /path/to/sdk/tools/android  update project  --target 1 -p . -n smstweak
-$ ant debug
+  /path/to/sdk/tools/android  update project  --target 1 -p . -n smstweak
+  ant debug
 
 
 

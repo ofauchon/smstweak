@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Général">
+
+        <CheckBoxPreference
+                android:key="autostart"
+                android:title="Lancement automatique"
+                android:summary="Cocher pour lancer sms-tweak automatiquement">
+        </CheckBoxPreference>
+
+        <CheckBoxPreference
+                android:key="isenabled"
+                android:title="Activation des filtres"
+                android:summary="Cocher pour activer le filtrage">
+        </CheckBoxPreference>
+
+        <CheckBoxPreference
+                android:key="statusnotify"
+                android:title="Notifications dans la barre de status"
+                android:summary="Cocher pour afficher une notification quand un sms valide une rêgle">
+        </CheckBoxPreference>
+
+
+
+        <PreferenceScreen
+                android:key="rules_preferencescreen"
+                android:title="Rêgles de filtrage">
+            <PreferenceScreen
+                    android:key="rules_preferencescreen"
+                    android:title="Rêgle 1">
+                <PreferenceCategory>
+                    <CheckBoxPreference
+                            android:key="isenabled01"
+                            android:title="Activer la rêgle"
+                            android:summary="Cocher pour activer la rêgle">
+                    </CheckBoxPreference>
+
+                    <com.oflabs.smstweak.AutocompleteEditTextPreference
+                            android:title="Rêgle de filtrage"
+                            android:key="rule01"
+                            android:summary="Permet de définir le filtre d'application de la rêgle">
+                    </com.oflabs.smstweak.AutocompleteEditTextPreference>
+
+                    <com.oflabs.smstweak.AutocompleteEditTextPreference
+                            android:title="Action associée"
+                            android:key="action01"
+                            android:summary="Permet de définir une ou plusieurs actions à exécuter si le filtre correspond">
+                    </com.oflabs.smstweak.AutocompleteEditTextPreference>
+                </PreferenceCategory>
+            </PreferenceScreen>
+            <PreferenceScreen
+                    android:key="rules_preferencescreen"
+                    android:title="Rêgle 2">
+                <PreferenceCategory>
+                    <CheckBoxPreference
+                            android:key="isenabled02"
+                            android:title="Activer la rêgle"
+                            android:summary="Cocher pour activer la rêgle">
+                    </CheckBoxPreference>
+
+                    <com.oflabs.smstweak.AutocompleteEditTextPreference
+                            android:title="Rêgle de filtrage"
+                            android:key="rule02"
+                            android:summary="Permet de sélectionner certains SMS en fonction d'un ou plusieurs rêgles">
+                    </com.oflabs.smstweak.AutocompleteEditTextPreference>
+
+                    <com.oflabs.smstweak.AutocompleteEditTextPreference
+                            android:title="Action si correspondance"
+                            android:key="action02"
+                            android:summary="Permet de définir une ou plusieurs actions à exécuter si la rêgle correspond">
+                    </com.oflabs.smstweak.AutocompleteEditTextPreference>
+                </PreferenceCategory>
+            </PreferenceScreen>
+
+
+
+
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

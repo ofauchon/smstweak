@@ -36,6 +36,8 @@ import com.oflabs.smstweak.Sms;
 import com.oflabs.smstweak.activities.SMSActivity;
 import com.oflabs.smstweak.smsdb.SmsDB;
 
+import static android.R.id.icon;
+
 /**
  * Created by IntelliJ IDEA.
  * User: olivier
@@ -54,15 +56,22 @@ public class SMSReceiver extends BroadcastReceiver  {
 
     //Méthode qui créer la notification
     private void createNotify(Context context, String titreNotification, String texteNotification, boolean vibrate) {
-        //On créer un "gestionnaire de notification"
+/*
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, SMSActivity.class), 0);
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        //On créer la notification
-        //Avec son icône et son texte défilant (optionel si l'on veut pas de texte défilant on met cet argument à null)
-        Notification notification = new Notification(R.drawable.icon, "sms-tweeak: New message!", System.currentTimeMillis());
+      //  Notification notification = new Notification(R.drawable.icon, "sms-tweeak: New message!", System.currentTimeMillis());
+        NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(context);
+
+        nBuilder.
+        (pendingIntent)
+                .setSmallIcon(icon).setWhen( System.currentTimeMillis() )
+                .setContentTitle("sms-tweak: New message!")
+                .setContentText("message").build();
+        notification.flags |= Notification.FLAG_AUTO_CANCEL;
         //Le PendingIntent c'est ce qui va nous permettre d'atteindre notre deuxième Activity
         //ActivityNotification sera donc le nom de notre seconde Activity
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, SMSActivity.class), 0);
         //On configure notre notification avec tous les paramètres que l'on vient de créer
+        notification.set
         notification.setLatestEventInfo(context, titreNotification, texteNotification, pendingIntent);
         //On ajoute un style de vibration à notre notification
         //L'utilisateur est donc également averti par les vibrations de son téléphone
@@ -71,8 +80,8 @@ public class SMSReceiver extends BroadcastReceiver  {
         if (vibrate) notification.vibrate = new long[]{0, 200, 100, 200, 100, 200};
         //Enfin on ajoute notre notification et son ID à notre gestionnaire de notification
         notificationManager.notify(ID_NOTIFICATION, notification);
+*/
     }
-
 
     // -- Decode SMS --
     SmsMessage[] getSmsFromBundle(Bundle bundle) {

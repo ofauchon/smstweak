@@ -79,9 +79,9 @@ public class RulesParser {
     {
         int ret=0;
         if (s.equals("hourofday")){
-            ret = Calendar.getInstance().getTime().getHours();
+            ret = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
         } else if (s.equals("dayofmonth")){
-            ret = Calendar.getInstance().getTime().getDate();
+            ret = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
         } else {
             try{
                         ret = Integer.parseInt(s);
@@ -246,11 +246,11 @@ public class RulesParser {
 public static void main(String[] args){
 
     class RuleTest{
-        public String testName;
-        public String testString;
-        public boolean result;
+        private String testName;
+        private String testString;
+        private boolean result;
 
-        RuleTest(String testName, String testString, boolean result) {
+        private RuleTest(String testName, String testString, boolean result) {
             this.testName = testName;
             this.testString = testString;
             this.result = result;

@@ -44,9 +44,15 @@ public class Booter extends BroadcastReceiver {
     private void createNotify(Context context, String titreNotification, String texteNotification) {
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        Notification notification = new Notification(R.drawable.icon, "sms-tweak running !", System.currentTimeMillis());
+        //Notification notification = new Notification(R.drawable.icon, "sms-tweak running !", System.currentTimeMillis());
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, SMSActivity.class), 0);
-        notification.setLatestEventInfo(context, titreNotification, texteNotification, pendingIntent);
+        //notification.setLatestEventInfo(context, titreNotification, texteNotification, pendingIntent);
+        Notification.Builder builder = new Notification.Builder(context);
+        builder.setContentTitle("sms-tweak running !");
+        builder.setContentText("subject");
+        builder.setSmallIcon(R.drawable.icon);
+        Notification notification = builder.build();
+
         notificationManager.notify(ID_NOTIFICATION, notification);
     }
 

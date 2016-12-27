@@ -86,12 +86,14 @@ public class SMSReceiver extends BroadcastReceiver  {
     // -- Decode SMS --
     SmsMessage[] getSmsFromBundle(Bundle bundle) {
         SmsMessage[] msgs = null;
+        String format = bundle.getString("format");
+
         if (bundle != null) {
             //---get the Sms ---
             Object[] pdus = (Object[]) bundle.get("pdus");
             msgs = new SmsMessage[pdus.length];
             for (int i = 0; i < msgs.length; i++) {
-                msgs[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
+                msgs[i] = SmsMessage.createFromPdu((byte[]) pdus[i], format);
             }
         }
         return msgs;
@@ -114,8 +116,7 @@ public class SMSReceiver extends BroadcastReceiver  {
     // --- ACTION VIBRATE
     private void actionVibrate(Context context, long millis){
         Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(millis
-        );
+        v.vibrate(millis);
     }
 
     // --- ACTION PLAY SOUND
@@ -133,7 +134,7 @@ public class SMSReceiver extends BroadcastReceiver  {
     }
 
     /*
-     * SMS Processing : each incoming SMS will cross this method
+     * SMS Processing : every incoming SMS will come here
      */
     private void processSMS(Context pContext, SmsMessage pCurSms, String pCurRule, String pCurAction) throws ParserException
     {
@@ -192,7 +193,6 @@ public class SMSReceiver extends BroadcastReceiver  {
         if (bundle != null) 
         {
             SmsMessage msgs[] = getSmsFromBundle(bundle);
-
 
             for (SmsMessage msg : msgs) {
 

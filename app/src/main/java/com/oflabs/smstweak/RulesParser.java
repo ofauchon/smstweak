@@ -38,8 +38,6 @@ public class RulesParser {
     private final String TOK_DAYOFMONTH = "dayofmonth";
     private final String TOK_MONTHOFYEAR = "monthofyear";
 
-
-
     private final String[] tLogic = {"and" , "or"};
     private final String[] tSpecial = {TOK_DAYOFMONTH , "hourofday" , "callerid" , "message"};
 
@@ -47,11 +45,9 @@ public class RulesParser {
     public void setMessagebody(String messagebody) {
         this.messagebody = messagebody;
     }
-
     public void setCallerid(String callerid) {
         this.callerid = callerid;
     }
-
     private void doLog(String pLog){
         System.out.println("D:"+pLog);
     }
